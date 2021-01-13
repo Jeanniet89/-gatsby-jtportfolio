@@ -1,3 +1,13 @@
+const {
+  author,
+  siteTitle,
+  siteShortTitle,
+  siteDescription,
+  siteIcon,
+  siteUrl,
+  colors,
+} = require(`./config`)
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -6,6 +16,13 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    // `gatsby-plugin-sitemap`,
+    // `gatsby-plugin-robots-txt`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    // `gatsby-plugin-offline`,
+    // `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -19,11 +36,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: siteTitle,
+        short_name: siteShortTitle,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: colors.lightTheme.background,
+        theme_color: colors.lightTheme.primary,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
